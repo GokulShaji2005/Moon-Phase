@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Moon, Hemisphere } from "lunarphase-js";
 
-const pad = (n) => String(n).padStart(2, "0");
-const toLocalDateOnly = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
-const prettyDate = (d) => d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
-const titleCasePhase = (phaseEnum) =>
+
+const toLocalDateOnly = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+const prettyDate = (d: Date) => {
+  return d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+};
+const titleCasePhase = (phaseEnum: string) =>
   phaseEnum
     .toLowerCase()
     .replace(/_/g, " ")
